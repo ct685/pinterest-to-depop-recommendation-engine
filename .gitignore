@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data (large, downloadable — don't commit)
+data/board_images/*
+data/kaggle_fashion/*
+data/embeddings/*
+!data/board_images/.gitkeep
+!data/kaggle_fashion/.gitkeep
+!data/embeddings/.gitkeep
+
+# OS
+.DS_Store
+
+# Env secrets (e.g. Kaggle API key)
+.env
+kaggle.json
