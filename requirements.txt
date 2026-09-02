@@ -9,4 +9,5 @@ jupyter
 ipykernel
 matplotlib
 seaborn
+kaggle
 kagglehub
