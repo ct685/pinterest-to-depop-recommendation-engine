@@ -13,6 +13,9 @@ data/embeddings/*
 !data/board_images/.gitkeep
 !data/kaggle_fashion/.gitkeep
 !data/embeddings/.gitkeep
+# ...except the bundled sample board (the "use the sample board" demo path).
+# Your own boards use different filenames and stay ignored.
+!data/board_images/pinterest_*.jpg
 
 # OS
 .DS_Store

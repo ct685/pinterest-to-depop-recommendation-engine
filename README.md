@@ -77,6 +77,18 @@ pip install -r requirements.txt        # app + pipeline only
 pip install -r requirements-dev.txt    # add this for the notebooks / data prep
 ```
 
+### Kaggle credentials
+
+`notebooks/01_load_data.ipynb` pulls the dataset with `kagglehub`, which needs a (free)
+Kaggle account and API token. Create one at *Kaggle → Account → Create New Token*, then either:
+
+- save the downloaded `kaggle.json` to `~/.kaggle/kaggle.json`, or
+- export `KAGGLE_USERNAME` and `KAGGLE_KEY` in your shell.
+
+Already have the dataset on disk? Skip the token and point the pipeline at it with
+`KAGGLE_FASHION_DIR=/path/to/fashion-product-images-small` (the folder holding `styles.csv`
+and `images/`).
+
 ### One-time data prep (notebooks)
 
 The app depends on cached artifacts that the notebooks generate into `data/embeddings/`
@@ -84,7 +96,7 @@ The app depends on cached artifacts that the notebooks generate into `data/embed
 
 | Notebook | Produces | Notes |
 |---|---|---|
-| `01_load_data.ipynb` | downloads the Kaggle dataset via `kagglehub` | first look at both datasets |
+| `01_load_data.ipynb` | downloads the Kaggle dataset via `kagglehub` | needs Kaggle credentials (above); first look at both datasets |
 | `03_item_embeddings.ipynb` | `item_embeddings.npy`, `item_ids.npy` | ~44k images, ≈10 min on Apple Silicon; runs once |
 | `06_usage_classifier.ipynb` | `usage_classifier.pt` | trains + evaluates the classifier |
 
@@ -105,9 +117,10 @@ jupyter lab
 streamlit run app/streamlit_app.py
 ```
 
-Upload board images (or tick "use the sample board"), click **Analyze board**, and you get the
-aesthetic tags, predicted usage, a grid of recommended items with images, and one
-"Shop this vibe on Depop" button per generated query.
+Upload board images, or tick "use the sample board" (10 images ship with the repo in
+`data/board_images/`), click **Analyze board**, and you get the aesthetic tags, predicted
+usage, a grid of recommended items with images, and one "Shop this vibe on Depop" button
+per generated query.
 
 ### Command line
 
@@ -123,7 +136,7 @@ python -m src.pipeline        # analyzes data/board_images/, prints the board su
 src/pipeline.py        Importable end-to-end inference pipeline (shared by the app + CLI).
 app/streamlit_app.py   Streamlit UI; owns Streamlit-level caching of the model and item pool.
 notebooks/             Numbered, notebook-first development of each stage (01–08).
-data/board_images/     Your saved board images (git-ignored).
+data/board_images/     Board images. A 10-image sample board is committed; your own additions are git-ignored.
 data/kaggle_fashion/   Reserved for the Kaggle dataset (downloaded to the kagglehub cache).
 data/embeddings/       Cached embeddings + trained classifier (git-ignored).
 project_scope.md       Source-of-truth design doc: goals, non-goals, build steps.
