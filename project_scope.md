@@ -1,4 +1,4 @@
-# Outfit Vibe Recommender — Project Scope & Build Plan
+# Pinterest to Depop Recommendation Engine — Project Scope & Build Plan
 
 ## 1. Problem Statement
 
@@ -101,17 +101,17 @@ Embed this vocabulary once with CLIP's text encoder (same trick as step 7, just 
 
 ## 8. Build Order / Milestones Checklist
 
-- [ ] Colab set up, both datasets downloaded
-- [ ] FashionCLIP loaded, board vibe vector computed
-- [ ] Item pool embedded and cached
-- [ ] Cosine-similarity item recommendations working
-- [ ] Zero-shot aesthetic tags working
-- [ ] Usage classifier trained and evaluated (metrics + confusion matrix recorded)
-- [ ] Garment-detail term extraction working
-- [ ] Depop links generating correctly from those terms
-- [ ] Streamlit app assembled end-to-end
-- [ ] Sanity-check evaluation done
-- [ ] README + demo recorded, pushed to GitHub
+- [x] Environment set up, both datasets downloaded
+- [x] FashionCLIP loaded, board vibe vector computed
+- [x] Item pool embedded and cached
+- [x] Cosine-similarity item recommendations working
+- [x] Zero-shot aesthetic tags working
+- [x] Usage classifier trained and evaluated (metrics + confusion matrix recorded)
+- [x] Garment-detail term extraction working
+- [x] Depop links generating correctly from those terms
+- [x] Streamlit app assembled end-to-end
+- [x] Sanity-check evaluation done
+- [ ] README + demo recorded, pushed to GitHub  *(README done; demo GIF still to record)*
 
 ## 9. Resume Skills This Project Demonstrates
 

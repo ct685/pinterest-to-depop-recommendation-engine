@@ -1,0 +1,10 @@
+# Development dependencies — notebooks, plots, and the one-time Kaggle download.
+# Superset of requirements.txt.
+-r requirements.txt
+
+kagglehub==1.0.2      # notebooks/01 — downloads the Kaggle dataset
+jupyterlab==4.6.2
+notebook==7.6.1
+ipykernel==7.3.0
+matplotlib==3.11.1   # notebooks/06 — training curves, confusion matrix
+seaborn==0.13.2

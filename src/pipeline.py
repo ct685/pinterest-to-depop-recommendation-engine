@@ -1,4 +1,4 @@
-"""End-to-end inference pipeline for the Outfit Vibe Recommender.
+"""End-to-end inference pipeline for the Pinterest to Depop Recommendation Engine.
 
 This is the notebook logic (notebooks 02, 04, 05, 06-inference, 07, 08) refactored into
 importable functions so the Streamlit app and any script can share one code path.

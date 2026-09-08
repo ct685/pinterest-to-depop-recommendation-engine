@@ -1,4 +1,4 @@
-"""Outfit Vibe Recommender — Streamlit interface.
+"""Pinterest to Depop Recommendation Engine — Streamlit interface.
 
 Upload a Pinterest board (a handful of saved outfit images) and get back:
   - the board's aesthetic tags (zero-shot) and predicted usage category (trained classifier)
@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import pipeline  # noqa: E402
 from src.pipeline import BoardAnalysis  # noqa: E402
 
-st.set_page_config(page_title="Outfit Vibe Recommender", page_icon="🧥", layout="wide")
+st.set_page_config(page_title="Pinterest to Depop Recommendation Engine", page_icon="🧥", layout="wide")
 
 
 # ---------------------------------------------------------------------------
@@ -110,7 +110,7 @@ def render_analysis(analysis: BoardAnalysis, n_item_cols: int) -> None:
 # Page
 # ---------------------------------------------------------------------------
 
-st.title("🧥 Outfit Vibe Recommender")
+st.title("🧥 Pinterest to Depop Recommendation Engine")
 st.write(
     "Turn a Pinterest style board into shoppable outfit recommendations. "
     "FashionCLIP embeds your saved images into one *vibe vector*, which drives "

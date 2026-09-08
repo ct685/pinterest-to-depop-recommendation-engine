@@ -1,13 +1,9 @@
-torch
-transformers
-scikit-learn
-pandas
-numpy
-pillow
-streamlit
-jupyter
-ipykernel
-matplotlib
-seaborn
-kaggle
-kagglehub
+# Runtime dependencies — what the Streamlit app and src/pipeline.py need.
+# For notebook / data-prep work, install requirements-dev.txt instead (it includes this file).
+torch==2.13.0
+transformers==5.14.1
+scikit-learn==1.9.0
+pandas==3.0.5
+numpy==2.5.1
+pillow==12.3.0
+streamlit==1.61.1

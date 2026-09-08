@@ -1,4 +1,4 @@
-# Outfit Vibe Recommender
+# Pinterest to Depop Recommendation Engine
 
 Turn a Pinterest style board into **shoppable** outfit recommendations.
 
@@ -23,7 +23,7 @@ You save a folder of outfit images the way you'd pin them. The tool embeds them 
 - **No CLIP training from scratch.** FashionCLIP is used pretrained for all embedding work. The one piece of real supervised training is a small classifier head on top of frozen embeddings.
 - Single-user, local, notebook-first. No auth, no deployment.
 
-Full rationale and build log: [`outfit_vibe_project_scope.md`](outfit_vibe_project_scope.md).
+Full rationale and build log: [`project_scope.md`](project_scope.md).
 
 ---
 
@@ -73,7 +73,8 @@ Requires Python 3.11+ (developed on 3.13) and the Kaggle "Fashion Product Images
 ```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt        # app + pipeline only
+pip install -r requirements-dev.txt    # add this for the notebooks / data prep
 ```
 
 ### One-time data prep (notebooks)
@@ -125,7 +126,7 @@ notebooks/             Numbered, notebook-first development of each stage (01–
 data/board_images/     Your saved board images (git-ignored).
 data/kaggle_fashion/   Reserved for the Kaggle dataset (downloaded to the kagglehub cache).
 data/embeddings/       Cached embeddings + trained classifier (git-ignored).
-outfit_vibe_project_scope.md   Source-of-truth design doc: goals, non-goals, build steps.
+project_scope.md       Source-of-truth design doc: goals, non-goals, build steps.
 ```
 
 `src/pipeline.py` mirrors the notebooks stage for stage: `board_vibe_vector` (nb 02),
