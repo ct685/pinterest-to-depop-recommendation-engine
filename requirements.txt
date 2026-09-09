@@ -7,3 +7,4 @@ pandas==3.0.5
 numpy==2.5.1
 pillow==12.3.0
 streamlit==1.61.1
+streamlit-shadcn-ui==1.4.0   # stat cards, badges, tabs in the app UI

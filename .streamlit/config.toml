@@ -1,0 +1,64 @@
+# Theme for the Pinterest -> Depop app.
+# Warm bone ground, charcoal text, a single terracotta accent, Inter everywhere.
+# Docs: https://docs.streamlit.io/develop/api-reference/configuration/config.toml
+#
+# NOTE: every scalar [theme] key must appear BEFORE the [[theme.fontFaces]]
+# array-of-tables below — TOML assigns any key after an array-of-tables to that
+# table, and Streamlit then rejects the whole config.
+
+[theme]
+base = "light"                          # commit to the light look
+
+primaryColor = "#a1553f"               # terracotta — buttons, active states, links
+backgroundColor = "#faf7f2"            # warm bone
+secondaryBackgroundColor = "#f2ebe1"   # sidebar, cards, inputs, code
+textColor = "#2b2622"                  # warm near-black
+linkColor = "#a1553f"
+linkUnderline = true
+borderColor = "#e4dccc"                # warm tan hairlines
+
+# One typeface for body, headings, and code.
+font = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+headingFont = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+codeFont = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+baseFontSize = 16
+
+baseRadius = "small"                   # restrained corners
+buttonRadius = "small"
+showWidgetBorder = true
+showSidebarBorder = true
+
+# Warm categorical palette for st.bar_chart and the shadcn charts.
+chartCategoricalColors = ["#a1553f", "#c98a5e", "#7d8471", "#4a4038", "#b8a88f", "#8a6f52", "#a89a86", "#5c534a"]
+
+[[theme.fontFaces]]
+family = "Inter"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-400-normal.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Inter"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-500-normal.woff2"
+weight = 500
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Inter"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-600-normal.woff2"
+weight = 600
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Inter"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-700-normal.woff2"
+weight = 700
+style = "normal"
+
+[server]
+# Board images are small; keep the uploader generous.
+maxUploadSize = 50
+# Poll by mtime instead of importing every module to watch it — the module walker
+# trips over transformers' optional torchvision imports and floods the log with
+# harmless ModuleNotFoundError tracebacks.
+fileWatcherType = "poll"
