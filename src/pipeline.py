@@ -411,18 +411,17 @@ def generate_depop_links(
 ) -> pd.DataFrame:
     """One Depop search per recommended item, then de-duplicated.
 
-    Returns rows of: query, url, covers (list of product names that map to that query).
+    Returns rows of: query, url, covers (list of product names that map to that query),
+    item_ids (the matching recommendation ids, same order as ``covers``). Rows keep the
+    order in which each query first appears in the ranked recommendations.
     """
-    df = recommendations.copy()
-    df["query"] = df["articleType"].apply(lambda a: build_query(a, top_aesthetic, ranked_terms, category_gate))
-    df["url"] = df["query"].apply(depop_url)
-
-    grouped = df.groupby("query", sort=False)
-    return pd.DataFrame({
-        "query": list(grouped.groups.keys()),
-        "url": grouped["url"].first().tolist(),
-        "covers": grouped["productDisplayName"].apply(list).tolist(),
-    })
+    rows: dict[str, dict] = {}
+    for item_id, rec in recommendations.iterrows():
+        query = build_query(rec["articleType"], top_aesthetic, ranked_terms, category_gate)
+        row = rows.setdefault(query, {"query": query, "url": depop_url(query), "covers": [], "item_ids": []})
+        row["covers"].append(rec["productDisplayName"])
+        row["item_ids"].append(item_id)
+    return pd.DataFrame(list(rows.values()), columns=["query", "url", "covers", "item_ids"])
 
 
 # ---------------------------------------------------------------------------
@@ -436,7 +435,7 @@ class BoardAnalysis:
     usage_prediction: list[tuple[str, float]]      # (class, probability), ranked
     garment_terms: list[tuple[str, float]]         # (term, score), ranked
     recommendations: pd.DataFrame                  # indexed by item id
-    depop_links: pd.DataFrame                      # query / url / covers
+    depop_links: pd.DataFrame                      # query / url / covers / item_ids
     dataset_root: Path = field(repr=False)
 
     @property

@@ -1,4 +1,6 @@
-# Pinterest to Depop Recommendation Engine
+# Transpose
+
+*A Pinterest to Depop recommendation engine.*
 
 Turn a Pinterest style board into **shoppable** outfit recommendations.
 
@@ -118,9 +120,14 @@ streamlit run app/streamlit_app.py
 ```
 
 Upload board images, or tick "use the sample board" (10 images ship with the repo in
-`data/board_images/`), click **Analyze board**, and you get the aesthetic tags, predicted
-usage, a grid of recommended items with images, and one "Shop this vibe on Depop" button
-per generated query.
+`data/board_images/`), then click **Analyze board**. Results are split into tabs:
+
+- **Overview**: a one-line read of the board ("Clean Girl, *mostly casual*") with highlights
+- **The vibe**: aesthetic tags and the usage classifier's probabilities
+- **Details**: the garment-detail terms, ranked and grouped by fit, neckline, fabric and pattern
+- **Pieces**: the recommended items, each with its own Depop link
+- **Shop**: one Depop search per generated query, with the items it covers
+- **How it works**: the pipeline and the classifier's test-set results
 
 ### Command line
 

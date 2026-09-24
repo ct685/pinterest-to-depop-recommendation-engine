@@ -1,5 +1,7 @@
-# Theme for the Pinterest -> Depop app.
-# Warm bone ground, charcoal text, a single terracotta accent, Inter everywhere.
+# Theme for Transpose.
+# Neutral: white page, warm paper-gray panels, black as the only accent. A muted red is
+# reserved for the Depop buttons (styled in app/streamlit_app.py, not here).
+# Type: Cormorant Garamond for headings, EB Garamond for everything else.
 # Docs: https://docs.streamlit.io/develop/api-reference/configuration/config.toml
 #
 # NOTE: every scalar [theme] key must appear BEFORE the [[theme.fontFaces]]
@@ -7,53 +9,93 @@
 # table, and Streamlit then rejects the whole config.
 
 [theme]
-base = "light"                          # commit to the light look
+base = "light"
 
-primaryColor = "#a1553f"               # terracotta — buttons, active states, links
-backgroundColor = "#faf7f2"            # warm bone
-secondaryBackgroundColor = "#f2ebe1"   # sidebar, cards, inputs, code
-textColor = "#2b2622"                  # warm near-black
-linkColor = "#a1553f"
+primaryColor = "#111111"               # ink — primary button, active tab, slider, focus
+backgroundColor = "#ffffff"            # page
+secondaryBackgroundColor = "#f4f4f2"   # paper gray — sidebar, inputs, panels
+textColor = "#111111"
+linkColor = "#111111"
 linkUnderline = true
-borderColor = "#e4dccc"                # warm tan hairlines
+borderColor = "#e3e3e0"                # hairline rules
 
-# One typeface for body, headings, and code.
-font = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-headingFont = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-codeFont = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-baseFontSize = 16
+font = "'EB Garamond', Garamond, 'Times New Roman', serif"
+headingFont = "'Cormorant Garamond', 'EB Garamond', Garamond, serif"
+codeFont = "ui-monospace, 'SF Mono', Menlo, monospace"
+baseFontSize = 17                      # Garamond runs small; bump one step
 
-baseRadius = "small"                   # restrained corners
-buttonRadius = "small"
+baseRadius = "none"                    # square corners suit the editorial look
+buttonRadius = "none"
 showWidgetBorder = true
 showSidebarBorder = true
 
-# Warm categorical palette for st.bar_chart and the shadcn charts.
-chartCategoricalColors = ["#a1553f", "#c98a5e", "#7d8471", "#4a4038", "#b8a88f", "#8a6f52", "#a89a86", "#5c534a"]
+chartCategoricalColors = ["#111111", "#6b6b68", "#a8a8a4", "#3a3a38", "#c9c9c5"]
 
 [[theme.fontFaces]]
-family = "Inter"
-url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-400-normal.woff2"
-weight = 400
-style = "normal"
-
-[[theme.fontFaces]]
-family = "Inter"
-url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-500-normal.woff2"
+family = "Cormorant Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5/files/cormorant-garamond-latin-500-normal.woff2"
 weight = 500
 style = "normal"
 
 [[theme.fontFaces]]
-family = "Inter"
-url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-600-normal.woff2"
+family = "Cormorant Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5/files/cormorant-garamond-latin-600-normal.woff2"
 weight = 600
 style = "normal"
 
 [[theme.fontFaces]]
-family = "Inter"
-url = "https://cdn.jsdelivr.net/npm/@fontsource/inter@5/files/inter-latin-700-normal.woff2"
+family = "Cormorant Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5/files/cormorant-garamond-latin-700-normal.woff2"
 weight = 700
 style = "normal"
+
+[[theme.fontFaces]]
+family = "Cormorant Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5/files/cormorant-garamond-latin-500-italic.woff2"
+weight = 500
+style = "italic"
+
+[[theme.fontFaces]]
+family = "Cormorant Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5/files/cormorant-garamond-latin-600-italic.woff2"
+weight = 600
+style = "italic"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-400-normal.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-500-normal.woff2"
+weight = 500
+style = "normal"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-600-normal.woff2"
+weight = 600
+style = "normal"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-700-normal.woff2"
+weight = 700
+style = "normal"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-400-italic.woff2"
+weight = 400
+style = "italic"
+
+[[theme.fontFaces]]
+family = "EB Garamond"
+url = "https://cdn.jsdelivr.net/npm/@fontsource/eb-garamond@5/files/eb-garamond-latin-500-italic.woff2"
+weight = 500
+style = "italic"
 
 [server]
 # Board images are small; keep the uploader generous.
